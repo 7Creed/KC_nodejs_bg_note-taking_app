@@ -1,0 +1,52 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 80px;
+  align-items: center;
+}
+
+header > div {
+  display: flex;
+  gap: 10px;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+header > div > button,
+#view-button,
+#edit-button,
+#delete-button {
+  border: none;
+  background-color: black;
+  color: white;
+  border-radius: 8px;
+  padding: 8px 12px;
+}
+
+.no-note {
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.single-note {
+  border: 1px solid black;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.view-edit-delete-button {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.view-edit-delete-button > button {
+  width: 100%;
+}
+
+#delete-button {
+  background-color: red !important;
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      body {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      main {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        align-items: center;
+      }
+    </style>
+
+    <main>
+      <div>Are you sure you want to delete this note?</div>
+      <div>
+        <button onclick="deleteNote()">Yes</button>
+        <button onclick="location.assign('/frontend/dashboard.html')">
+          No
+        </button>
+      </div>
+    </main>
+
+    <script src="./script/setUp.js"></script>
+    <script>
+      async function deleteNote() {
+        try {
+          const id = location.search.slice(4);
+
+          const response = await fetch(urlMaker("/note/" + id), {
+            method: "DELETE",
+            headers: {
+              Authorization: getToken(),
+            },
+          });
+
+          if (response.status == 200) {
+            alert("Note has been deleted successfully!");
+            location.assign("/frontend/dashboard.html");
+          }
+        } catch (error) {
+          console.error(error);
+          alert("An error occured while trying to delete the note.");
+        }
+      }
+    </script>
+  </body>
+</html>

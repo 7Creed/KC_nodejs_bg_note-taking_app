@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style/add-note-style.css" />
+  </head>
+  <body>
+    <div>
+      <h3 style="text-align: center">Add a note</h3>
+      <input
+        type="text"
+        id="note-title"
+        placeholder="Type in your note title"
+      />
+      <textarea
+        name=""
+        id="note-body"
+        placeholder="Type a note..."
+        rows="5"
+      ></textarea>
+      <button id="add-note-button">Add note</button>
+      <button
+        onclick="history.back()"
+        style="color: blue; background-color: white; border: 1px solid blue"
+      >
+        Back
+      </button>
+    </div>
+
+    <script src="./script/setUp.js"></script>
+    <script src="./script/add-note-script.js"></script>
+  </body>
+</html>

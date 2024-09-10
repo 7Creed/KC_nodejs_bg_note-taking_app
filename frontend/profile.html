@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      body {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      main {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+      }
+    </style>
+    <main></main>
+
+    <script src="./script/setUp.js"></script>
+    <script>
+      async function getMyProfile() {
+        const mainArea = document.querySelector("main");
+
+        try {
+          const response = await fetch(urlMaker("/note/profile"), {
+            method: "GET",
+            headers: {
+              Authorization: getToken(),
+            },
+          });
+
+          const data = await response.json();
+
+          mainArea.innerHTML = `
+              <div class="">
+                <div>Full Name: ${data.profile.fullName}</div>
+                <div>Username: ${data.profile.username}</div>
+                <div>Email: ${data.profile.email}</div>
+                <button onclick="location.assign('/frontend/dashboard.html')">Go back to dashboard</button>
+              </div>
+          `;
+        } catch (error) {
+          console.error(error);
+        }
+      }
+
+      getMyProfile();
+    </script>
+  </body>
+</html>
